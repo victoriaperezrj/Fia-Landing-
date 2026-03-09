@@ -1,0 +1,262 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg: #050a14;
+  --bg-soft: #091428;
+  --surface: rgba(12, 24, 46, 0.72);
+  --surface-border: rgba(112, 163, 255, 0.2);
+  --text-strong: #f4f8ff;
+  --text-mid: #bdc8da;
+  --text-soft: #90a0b7;
+  --brand: #5eb1ff;
+  --brand-strong: #2c84d8;
+  --success: #25d366;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  color: var(--text-strong);
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(94, 177, 255, 0.12), transparent 60%),
+    radial-gradient(900px 520px at 90% 0%, rgba(56, 110, 190, 0.1), transparent 62%),
+    linear-gradient(180deg, #050a14 0%, #071122 45%, #050a14 100%);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  text-rendering: optimizeLegibility;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  letter-spacing: -0.024em;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #a7d7ff 0%, #61b5ff 45%, #8fd7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-shell {
+  position: relative;
+  padding: 4.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding: 5.5rem 1.5rem;
+  }
+}
+
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(109, 172, 255, 0.55), transparent);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #87c8ff;
+}
+
+.section-label::before {
+  content: "";
+  width: 1.9rem;
+  height: 1px;
+  background: rgba(104, 170, 255, 0.9);
+}
+
+.surface-card {
+  background: rgba(12, 24, 46, 0.66);
+  border: 1px solid rgba(112, 163, 255, 0.24);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(167, 215, 255, 0.08), 0 10px 28px rgba(3, 8, 18, 0.24);
+}
+
+.premium-hover {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.premium-hover:hover {
+  transform: translateY(-8px);
+  border-color: rgba(135, 193, 255, 0.5);
+  box-shadow:
+    0 0 40px rgba(59, 130, 246, 0.18),
+    inset 0 1px 0 rgba(167, 215, 255, 0.12),
+    0 24px 52px rgba(0, 0, 0, 0.38);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.9rem 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f7fbff;
+  background: linear-gradient(135deg, #1f78ce 0%, #5eb1ff 100%);
+  border: 1px solid rgba(155, 213, 255, 0.34);
+  box-shadow: 0 8px 24px rgba(46, 132, 216, 0.3);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 18px 36px rgba(46, 132, 216, 0.5), 0 0 0 1px rgba(155, 213, 255, 0.25);
+  filter: brightness(1.08);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
+  transform: translateX(-130%);
+  transition: transform 0.7s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(130%);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.9rem 1.75rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.nav-blur {
+  background: rgba(6, 12, 24, 0.78);
+  border-bottom: 1px solid rgba(130, 189, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+@keyframes hero-glow-breathe {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+.hero-glow-animate {
+  animation: hero-glow-breathe 10s ease-in-out infinite;
+  will-change: opacity;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* ── Course card glow hierarchy ─────────────────────────────── */
+
+.course-card {
+  box-shadow: 0 0 0 1px rgba(120,190,255,0.18), 0 8px 22px rgba(59,130,246,0.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.course-card:hover {
+  box-shadow: 0 0 0 1px rgba(120,190,255,0.28), 0 12px 30px rgba(59,130,246,0.20);
+}
+.course-premium {
+  box-shadow: 0 0 0 1px rgba(120,190,255,0.35), 0 12px 40px rgba(59,130,246,0.35), 0 0 60px rgba(59,130,246,0.25) !important;
+}
+.course-premium:hover {
+  box-shadow: 0 0 0 1px rgba(120,190,255,0.55), 0 18px 60px rgba(59,130,246,0.45), 0 0 90px rgba(59,130,246,0.35) !important;
+  transform: translateY(-4px);
+}
+
+/* ── Course card spotlight hover effect ─────────────────────── */
+
+.card-spotlight {
+  position: relative;
+}
+
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    280px circle at var(--x, 50%) var(--y, 50%),
+    rgba(59, 130, 246, 0.13),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ── Course card gradient progression ─────────────────────── */
+/* course-1 = brightest → course-4 = darkest, consistent hue ~215° */
+
+.course-1 .card-header { background: linear-gradient(180deg, #4DA3FF 0%, #3B82F6 100%); }
+.course-2 .card-header { background: linear-gradient(180deg, #3F95F3 0%, #2F6FD8 100%); }
+.course-3 .card-header { background: linear-gradient(180deg, #2F6FD8 0%, #2359B5 100%); }
+.course-4 .card-header { background: linear-gradient(180deg, #2B66C7 0%, #224FA0 100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
