@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${manrope.variable} ${sora.variable}`}>
       <head>
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="beforeInteractive">
           {`
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

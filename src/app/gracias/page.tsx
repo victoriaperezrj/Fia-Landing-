@@ -16,9 +16,20 @@ const steps = [
 
 export default function GraciasPage() {
   useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).fbq("track", "Purchase", { currency: "ARS", value: 0 });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const firePurchase = () => {
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Purchase", { currency: "ARS", value: 0 });
+        return true;
+      }
+      return false;
+    };
+
+    if (!firePurchase()) {
+      const interval = setInterval(() => {
+        if (firePurchase()) clearInterval(interval);
+      }, 500);
+      setTimeout(() => clearInterval(interval), 10000);
     }
   }, []);
 
