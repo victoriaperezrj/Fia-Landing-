@@ -16,11 +16,9 @@ const steps = [
 
 export default function GraciasPage() {
   useEffect(() => {
-    try {
+    if (typeof window !== "undefined" && (window as any).fbq) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).fbq?.("track", "Purchase", { currency: "ARS" });
-    } catch {
-      // never throw
+      (window as any).fbq("track", "Purchase", { currency: "ARS", value: 0 });
     }
   }, []);
 
