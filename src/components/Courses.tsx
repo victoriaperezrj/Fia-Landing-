@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
@@ -271,8 +272,30 @@ function CourseCard({ course }: { course: CourseData }) {
 /* ── Section ──────────────────────────────────────────────── */
 
 export default function Courses() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any).fbq("track", "ViewContent", { content_name: "cursos-fia" });
+          }
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="cursos" className="section-shell overflow-hidden">
+    <section ref={sectionRef} id="cursos" className="section-shell overflow-hidden">
       <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(94,177,255,0.2),transparent_64%)] blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-6xl">

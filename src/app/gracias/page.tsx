@@ -16,20 +16,19 @@ const steps = [
 
 export default function GraciasPage() {
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const firePurchase = () => {
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Purchase", { currency: "ARS", value: 0 });
-        return true;
-      }
-      return false;
-    };
+    const params = new URLSearchParams(window.location.search);
+    const curso = params.get("curso") || "curso-fia";
+    const valor = parseFloat(params.get("valor") || "25000");
 
-    if (!firePurchase()) {
-      const interval = setInterval(() => {
-        if (firePurchase()) clearInterval(interval);
-      }, 500);
-      setTimeout(() => clearInterval(interval), 10000);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).fbq("track", "Purchase", {
+        value: valor,
+        currency: "ARS",
+        content_name: curso,
+        content_type: "product",
+      });
     }
   }, []);
 
