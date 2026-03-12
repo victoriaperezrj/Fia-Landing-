@@ -110,6 +110,13 @@ export default function GraciasPage() {
               background: "linear-gradient(135deg, #128c3e, #25d366)",
               boxShadow: "0 12px 32px rgba(37,211,102,0.38)",
             }}
+            onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              if (typeof (window as any).fbq === "function") {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (window as any).fbq("trackCustom", "WhatsAppClick", { page: "gracias" });
+              }
+            }}
           >
             <WhatsAppIcon />
             Enviar comprobante por WhatsApp →
@@ -176,6 +183,13 @@ export default function GraciasPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-[#88d1ff] underline underline-offset-4 transition-opacity hover:opacity-80"
+              onClick={() => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                if (typeof (window as any).fbq === "function") {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  (window as any).fbq("trackCustom", "InstagramClick", { page: window.location.pathname });
+                }
+              }}
             >
               Escribinos por Instagram
             </a>

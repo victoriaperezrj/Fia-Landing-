@@ -1,4 +1,6 @@
-﻿import { Reveal } from "@/components/motion/Reveal";
+﻿"use client";
+
+import { Reveal } from "@/components/motion/Reveal";
 
 export default function Footer() {
   return (
@@ -47,6 +49,13 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mb-4 inline-flex items-center gap-3"
+                onClick={() => {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  if (typeof (window as any).fbq === "function") {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    (window as any).fbq("trackCustom", "InstagramClick", { page: window.location.pathname });
+                  }
+                }}
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-[#4f5bd5] via-[#d62976] to-[#f77737] transition-transform duration-300 group-hover:scale-105">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

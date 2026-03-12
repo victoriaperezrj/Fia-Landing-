@@ -106,6 +106,12 @@ const NIVEL_STYLES: Record<NivelColor, string> = {
 function fireInitiateCheckout(course: CourseData) {
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).fbq?.("track", "AddToCart", {
+      content_name: course.title,
+      value: course.priceValue,
+      currency: "ARS",
+    });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).fbq?.("track", "InitiateCheckout", {
       value: course.priceValue,
       currency: "ARS",
@@ -333,6 +339,13 @@ export default function Courses() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-[#88d1ff] underline underline-offset-4 transition-opacity hover:opacity-80"
+            onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              if (typeof (window as any).fbq === "function") {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (window as any).fbq("trackCustom", "InstagramClick", { page: window.location.pathname });
+              }
+            }}
           >
             Instagram
           </a>{" "}

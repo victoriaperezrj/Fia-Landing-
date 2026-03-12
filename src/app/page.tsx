@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import LandingPixelEvents from "@/components/LandingPixelEvents";
 import Features from "@/components/Features";
 import About from "@/components/About";
 import Courses from "@/components/Courses";
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <LandingPixelEvents />
     </>
   );
 }
