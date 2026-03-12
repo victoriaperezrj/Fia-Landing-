@@ -7,7 +7,7 @@ import { CountUp } from "@/components/CountUp";
 const stats = [
   { to: 4,  suffix: "",  label: "Profesores expertos" },
   { to: 14, suffix: "h", label: "Contenido aplicado"  },
-  { to: 4,  suffix: "",  label: "Programas activos"   },
+  { to: 120, suffix: "+", label: "Alumnos formados"    },
 ];
 
 export default function Hero() {
@@ -40,7 +40,7 @@ export default function Hero() {
 
         <Reveal delay={0.16}>
           <p className="mx-auto mt-7 max-w-[58ch] text-pretty text-[1.02rem] leading-relaxed text-[var(--text-mid)] sm:text-lg md:text-[1.22rem]">
-            Formación real en mercado de capitales argentino, con profesionales registrados en CNV que operan activamente.
+            Aprendé a invertir en el mercado argentino con profesionales que operan todos los días. Desde cero hasta armar tu propia cartera.
           </p>
         </Reveal>
 
@@ -64,6 +64,9 @@ export default function Hero() {
               Conocer FIA
             </motion.a>
           </div>
+          <p className="mt-5 text-xs font-medium text-[#88d1ff]">
+            <span aria-hidden>👥</span> +120 alumnos ya están invirtiendo con criterio
+          </p>
         </Reveal>
 
         <Reveal delay={0.32}>
@@ -93,7 +96,7 @@ export default function Hero() {
             }}
           >
             <span className="pulse-dot h-2 w-2 flex-shrink-0 rounded-full bg-[#ef4444]" />
-            Inscripciones abiertas · Cupos limitados por cohorte
+            🔥 Últimos días — Precio especial hasta el 31 de mayo · Cupos limitados
           </div>
         </Reveal>
       </div>

@@ -29,6 +29,14 @@ const faqs = [
     q: "¿Por cuánto tiempo tengo acceso?",
     a: "Acceso de por vida desde la compra.",
   },
+  {
+    q: "¿Tiene garantía?",
+    a: "Sí. Si dentro de los primeros 7 días sentís que el curso no es para vos, te devolvemos el 100% de tu inversión. Sin preguntas.",
+  },
+  {
+    q: "¿Los precios van a subir?",
+    a: "Sí. Los precios actuales son promocionales por lanzamiento. Una vez que se completen los cupos de esta cohorte, el precio aumenta.",
+  },
 ];
 
 export default function FAQ() {

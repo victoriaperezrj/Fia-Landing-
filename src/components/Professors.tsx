@@ -78,7 +78,7 @@ export default function Professors() {
             Aprendé de los <span className="text-gradient">mejores</span>
           </h2>
           <p className="mx-auto mt-4 max-w-[58ch] text-base leading-relaxed text-[var(--text-mid)] sm:text-[1.05rem]">
-            Profesionales activos del mercado argentino que enseñan desde experiencia real.
+            Todos registrados en CNV y operando activamente en el mercado argentino.
           </p>
         </Reveal>
 

@@ -192,6 +192,15 @@ function CourseCard({ course }: { course: CourseData }) {
             {course.badge}
           </span>
         )}
+        {/* Bottom-left: MÁS ELEGIDO tag for highlighted course */}
+        {course.highlight && (
+          <span
+            className="absolute bottom-3 left-4 rounded-full px-2.5 py-[3px] text-[0.55rem] font-black uppercase tracking-[0.14em]"
+            style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#f59e0b" }}
+          >
+            ⭐ Más elegido
+          </span>
+        )}
 
         {/* Centered icon */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -247,28 +256,33 @@ function CourseCard({ course }: { course: CourseData }) {
         <div className="flex-1" />
 
         {/* Price + CTA */}
-        <div className="mt-5 flex items-end justify-between border-t border-white/[0.07] pt-5">
-          <div>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#4a6a90]">
-              Inversión
-            </p>
-            <p className="text-xs leading-none text-[#4a6a90] line-through">
-              {course.originalPrice}
-            </p>
-            <p className="mt-0.5 text-[2.1rem] font-extrabold leading-none text-white">
-              {course.price}
-            </p>
-          </div>
+        <div className="mt-5 border-t border-white/[0.07] pt-5">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#4a6a90]">
+                Inversión
+              </p>
+              <p className="text-xs leading-none text-[#4a6a90] line-through">
+                {course.originalPrice}
+              </p>
+              <p className="mt-0.5 text-[2.1rem] font-extrabold leading-none text-white">
+                {course.price}
+              </p>
+              <p className="mt-1.5 text-[0.62rem] text-[#3a5a7a]">
+                ✓ Acceso inmediato · ✓ Certificado incluido · ✓ Soporte docente
+              </p>
+            </div>
 
           <motion.button
             whileHover={{ scale: 1.06, boxShadow: "0 8px 28px rgba(0,102,204,0.65)" }}
             whileTap={{ scale: 0.97 }}
             onClick={handleEnroll}
-            className="flex items-center gap-1.5 rounded-lg bg-[#0066CC] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#0077ee]"
+            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#0066CC] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#0077ee]"
             style={{ boxShadow: "0 4px 18px rgba(0,102,204,0.4)" }}
           >
             Inscribirme <span aria-hidden>→</span>
           </motion.button>
+          </div>
         </div>
       </div>
     </motion.article>
